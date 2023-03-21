@@ -1,0 +1,76 @@
+body {
+  background-color: #3a0c66;
+  color: #0a0408;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+#appTitle {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  font-size: 5rem;
+}
+
+#genreForm,
+#playBtn {
+  text-align: center;
+  margin: 0px auto;
+  display: block;
+}
+
+#movieInfo {
+  width: 65%;
+  margin: 2rem auto;
+}
+
+#movieInfo:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#moviePoster {
+  width: 48%;
+  float: left;
+}
+
+#movieText {
+  width: 45%;
+  float: left;
+}
+
+img#moviePoster {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+#movieText {
+  line-height: 1.25;
+}
+
+#playBtn {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-style: none;
+  background-color: #faf625;
+  color: #3a0c66;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+select {
+  width: 250px;
+  height: auto;
+  font-size: 1.3rem;
+}
