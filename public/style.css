@@ -57,7 +57,7 @@ img#moviePoster {
   margin: 1rem auto;
 }
 
-h2 {
+#movieTitle {
   font-size: 2rem;
 }
 
@@ -73,6 +73,7 @@ select {
   font-size: 1.2rem;
 }
 
+/* Tablet size */
 @media only screen and (max-width: 1280px) {
   .container {
     width: 100%;
@@ -92,12 +93,16 @@ select {
   }
 }
 
+/* Cell phone size */
 @media only screen and (max-width: 768px) {
   .container {
     width: 100%;
     padding: 0.5rem;
   }
 
+  #appTitle {
+    font-size: 1.5rem;
+  }
   #movieInfo {
     width: 100%;
     padding: 0;
@@ -108,10 +113,18 @@ select {
     padding-left: 0;
   }
 
+  #movieTitle {
+    font-size: 1.5rem;
+  }
+
   #movieText {
     width: 90%;
     padding: 0 2rem;
     margin: auto;
+  }
+
+  label, select {
+    font-size: 1rem;
   }
 }
 
