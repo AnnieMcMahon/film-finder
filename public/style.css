@@ -1,27 +1,31 @@
-body {
+.container {
   background-color: #3a0c66;
-  color: #0a0408;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
+  width: 65%;
+  height: 100%;
+  margin: 0 auto 2rem;
+  box-sizing: border-box;
+  border: 2px black solid;
+  border-radius: 10px;
 }
 
 #appTitle {
   text-align: center;
   margin: 0 auto;
   display: block;
-  font-size: 5rem;
+  font-size: 3.5rem;
 }
 
-#genreForm,
-#playBtn {
+#genreForm {
   text-align: center;
   margin: 0px auto;
   display: block;
 }
 
 #movieInfo {
-  width: 65%;
-  margin: 2rem auto;
+  width: 90%;
+  margin: 1rem auto;
 }
 
 #movieInfo:after {
@@ -31,46 +35,35 @@ body {
 }
 
 #moviePoster {
-  width: 48%;
+  width: 40%;
   float: left;
 }
 
 #movieText {
-  width: 45%;
+  width: 55%;
   float: left;
+  padding-left: 2rem;
 }
 
 img#moviePoster {
-  width: 70%;
+  width: 90%;
   height: auto;
   display: block;
-  margin: auto;
+  margin: 1rem auto;
 }
 
 #movieText {
-  line-height: 1.25;
-}
-
-#playBtn {
-  margin-top: 1rem;
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border-style: none;
-  background-color: #faf625;
-  color: #3a0c66;
-  cursor: pointer;
-  font-weight: bold;
+  line-height: 1.5;
 }
 
 label {
   display: block;
-  font-size: 2rem;
-  margin-bottom: 0.3rem;
+  font-size: 1.5rem;
+  margin: 1rem;
 }
 
 select {
-  width: 250px;
+  width: 15rem;
   height: auto;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
