@@ -68,43 +68,32 @@ const populateGenreDropdown = (genres) => {
   }
 };
 
-// Create HTML for movie poster
-const createMoviePoster = (posterPath) => {
-  const moviePosterUrl = `https://image.tmdb.org/t/p/original/${posterPath}`;
+// Create HTML to display the movie
+const displayMovie = (movieInfo) => {
+  // Create HTML for movie poster
+  const moviePosterUrl = `https://image.tmdb.org/t/p/original/${movieInfo.poster_path}`;
   const posterImg = document.createElement('img');
   posterImg.setAttribute('src', moviePosterUrl);
   posterImg.setAttribute('id', 'moviePoster');
-  return posterImg;
-};
+  moviePosterDiv.appendChild(posterImg);
 
-// Create HTML for movie title
-const createMovieTitle = (title) => {
+  // Create HTML for movie title
   const titleHeader = document.createElement('h1');
   titleHeader.setAttribute('id', 'movieTitle');
-  titleHeader.innerHTML = title;
-  return titleHeader;
-};
-
-// Create HTML for movie overview
-const createMovieOverview = (overview) => {
-  const overviewParagraph = document.createElement('p');
-  overviewParagraph.setAttribute('id', 'movieOverview');
-  overviewParagraph.innerHTML = overview;
-  return overviewParagraph;
-};
-
-// Uses the DOM to create HTML to display the movie
-const displayMovie = (movieInfo) => {
-  const moviePoster = createMoviePoster(movieInfo.poster_path);
-  const titleHeader = createMovieTitle(movieInfo.title);
-  const overviewText = createMovieOverview(movieInfo.overview);
-  const releaseDate = createMovieOverview(movieInfo.release_date);
-
-  // Append title, poster, and overview to page
-  moviePosterDiv.appendChild(moviePoster);
+  titleHeader.innerHTML = movieInfo.title;
   movieTextDiv.appendChild(titleHeader);
+
+  // Create HTML for movie overview
+  const overviewText = document.createElement('p');
+  overviewText.setAttribute('id', 'movieOverview');
+  overviewText.innerHTML = movieInfo.overview;
   movieTextDiv.appendChild(overviewText);
-  movieTextDiv.appendChild(releaseDate);
+
+  // Create HTML for overview text
+  const releaseDate = document.createElement('p');
+  releaseDate.setAttribute('id', 'releaseDate');
+  releaseDate.innerHTML = movieInfo.release_date;
+  movieTextDiv.appendChild(overviewText);
 };
 
 /* MAIN FUNCTION */
