@@ -1,8 +1,12 @@
+body {
+  box-sizing: border-box;
+}
+
 .container {
   background-color: #3a0c66;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
-  width: 65%;
+  width: 55%;
   height: 100%;
   margin: 0 auto 2rem;
   box-sizing: border-box;
@@ -14,7 +18,7 @@
   text-align: center;
   margin: 0 auto;
   display: block;
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 #genreForm {
@@ -43,6 +47,7 @@
   width: 55%;
   float: left;
   padding-left: 2rem;
+  line-height: 1.5;
 }
 
 img#moviePoster {
@@ -52,8 +57,8 @@ img#moviePoster {
   margin: 1rem auto;
 }
 
-#movieText {
-  line-height: 1.5;
+h2 {
+  font-size: 2rem;
 }
 
 label {
@@ -67,3 +72,46 @@ select {
   height: auto;
   font-size: 1.2rem;
 }
+
+@media only screen and (max-width: 1280px) {
+  .container {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  #movieInfo {
+    width: 100%;
+  }
+
+  img#moviePoster {
+    padding-left: 1rem;
+  }
+
+  p {
+    padding-right: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  #movieInfo {
+    width: 100%;
+    padding: 0;
+  }
+
+  #moviePoster, img#moviePoster {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  #movieText {
+    width: 90%;
+    padding: 0 2rem;
+    margin: auto;
+  }
+}
+

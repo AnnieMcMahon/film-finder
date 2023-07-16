@@ -23,7 +23,7 @@ const getGenres = async () => {
     }
 };
 
-// Get movies from the API based on the chosen genre
+// Get movies from the API based on the selected genre
 const getMovies = async () => {
     const selectedGenre = genres.value;
     const discoverMovieEndpoint = '/discover/movie';
@@ -78,7 +78,7 @@ const displayMovie = (movieInfo) => {
   moviePosterDiv.appendChild(posterImg);
 
   // Create HTML for movie title
-  const titleHeader = document.createElement('h1');
+  const titleHeader = document.createElement('h2');
   titleHeader.setAttribute('id', 'movieTitle');
   titleHeader.innerHTML = movieInfo.title;
   movieTextDiv.appendChild(titleHeader);
@@ -92,8 +92,8 @@ const displayMovie = (movieInfo) => {
   // Create HTML for overview text
   const releaseDate = document.createElement('p');
   releaseDate.setAttribute('id', 'releaseDate');
-  releaseDate.innerHTML = movieInfo.release_date;
-  movieTextDiv.appendChild(overviewText);
+  releaseDate.innerHTML = `Released ${movieInfo.release_date}`;
+  movieTextDiv.appendChild(releaseDate);
 };
 
 /* MAIN FUNCTION */
