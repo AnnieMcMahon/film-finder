@@ -1,7 +1,12 @@
 const tmdbKey = '2f5936eb88d1578d505ecd4735da1c86';
 const tmdbBaseUrl = 'https://api.themoviedb.org/3';
-const genres = document.getElementById('genres');
 
+// Elements
+const genreSelection = document.getElementById('genres');
+const moviePosterDiv = document.getElementById('moviePoster');
+const movieTextDiv = document.getElementById('movieText');
+
+/* API REQUEST FUNCTIONS */
 // Get genres from the API
 const getGenres = async () => {
     const genreRequestEndpoint = '/genre/movie/list';
@@ -16,17 +21,6 @@ const getGenres = async () => {
     } catch(error) {
         console.log(error);
     }
-};
-
-// Populate dropdown menu with all the available genres
-const populateGenreDropdown = (genres) => {
-  const select = document.getElementById('genres')
-  for (const genre of genres) {
-    let option = document.createElement("option");
-    option.value = genre.id;
-    option.text = genre.name;
-    select.appendChild(option);
-  }
 };
 
 // Get movies from the API based on the chosen genre
@@ -63,11 +57,63 @@ const getMovieInfo = async (movie) => {
     }
 };
 
+/* POPULATE HTML */
+// Populate dropdown menu with all the available genres
+const populateGenreDropdown = (genres) => {
+  for (const genre of genres) {
+    let option = document.createElement("option");
+    option.value = genre.id;
+    option.text = genre.name;
+    genreSelection.appendChild(option);
+  }
+};
+
+// Create HTML for movie poster
+const createMoviePoster = (posterPath) => {
+  const moviePosterUrl = `https://image.tmdb.org/t/p/original/${posterPath}`;
+  const posterImg = document.createElement('img');
+  posterImg.setAttribute('src', moviePosterUrl);
+  posterImg.setAttribute('id', 'moviePoster');
+  return posterImg;
+};
+
+// Create HTML for movie title
+const createMovieTitle = (title) => {
+  const titleHeader = document.createElement('h1');
+  titleHeader.setAttribute('id', 'movieTitle');
+  titleHeader.innerHTML = title;
+  return titleHeader;
+};
+
+// Create HTML for movie overview
+const createMovieOverview = (overview) => {
+  const overviewParagraph = document.createElement('p');
+  overviewParagraph.setAttribute('id', 'movieOverview');
+  overviewParagraph.innerHTML = overview;
+  return overviewParagraph;
+};
+
+// Uses the DOM to create HTML to display the movie
+const displayMovie = (movieInfo) => {
+  const moviePoster = createMoviePoster(movieInfo.poster_path);
+  const titleHeader = createMovieTitle(movieInfo.title);
+  const overviewText = createMovieOverview(movieInfo.overview);
+  const releaseDate = createMovieOverview(movieInfo.release_date);
+
+  // Append title, poster, and overview to page
+  moviePosterDiv.appendChild(moviePoster);
+  movieTextDiv.appendChild(titleHeader);
+  movieTextDiv.appendChild(overviewText);
+  movieTextDiv.appendChild(releaseDate);
+};
+
+/* MAIN FUNCTION */
 // Get a list of movies from the API and display the info of one of them
 const showRandomMovie = async () => {
     const movieInfo = document.getElementById('movieInfo');
     if (movieInfo.childNodes.length > 0) {
-        clearCurrentMovie();
+      moviePosterDiv.innerHTML = '';
+      movieTextDiv.innerHTML = '';
     };
     const movies = await getMovies();
     const randomIndex = Math.floor(Math.random() * movies.length);
@@ -78,4 +124,4 @@ const showRandomMovie = async () => {
 
 getGenres().then(populateGenreDropdown);
 showRandomMovie();
-genres.onchange = showRandomMovie;
+genreSelection.onchange = showRandomMovie;
